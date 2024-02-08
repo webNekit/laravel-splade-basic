@@ -6,4 +6,6 @@
             {{ __('Услуги') }}
         </h2>
    </x-slot>
+
+  <x-splade-table :for="$services" />
 </x-app-layout>
