@@ -9,6 +9,7 @@
             <a href="{{ route('services.create') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">{{ __('Новая услуга') }}</a>
         </div>
    </x-slot>
-
-  <x-splade-table :for="$services" />
+        <div class="my-4 p-4 bg-white max-w-4xl mx-auto rounded-md">
+            <x-splade-table :for="$services" />
+        </div>
 </x-app-layout>
