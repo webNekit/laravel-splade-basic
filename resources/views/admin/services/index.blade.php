@@ -10,6 +10,10 @@
         </div>
    </x-slot>
         <div class="my-4 p-4 bg-white max-w-4xl mx-auto rounded-md">
-            <x-splade-table :for="$services" />
+            <x-splade-table :for="$services">
+                @cell('action', $services)
+                    <Link href="{{ route('services.destroy', $services->id) }}" class="">{{ __('Удалить') }}</Link>
+                @endcell
+            </x-splade-table>
         </div>
 </x-app-layout>

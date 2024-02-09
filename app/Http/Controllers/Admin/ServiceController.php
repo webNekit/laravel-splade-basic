@@ -17,7 +17,10 @@ class ServiceController extends Controller
     {
         return view('admin.services.index', [
           'services' => SpladeTable::for(Service::class)
-              ->column('title')
+              ->withGlobalSearch(columns: ['title', 'description'])
+              ->column('title', label: "Название услуги")
+              ->column('description', label: "Описание услуги")
+              ->column('action', label: "Действие")
               ->paginate(10)
         ]);
     }
