@@ -89,8 +89,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        Toast::title('Услуга удалена');
+        return redirect()->route('services.index');
     }
 }
