@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceStoreRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
 
 class ServiceController extends Controller
@@ -45,7 +46,7 @@ class ServiceController extends Controller
         $service->isActive = $request->input('isActive');
         $service->image = $request->file('image')->store('public/services');
         $service->save();
-
+        Toast::title('Услуга добавлена!');
         return redirect()->route('services.index');
     }
 
@@ -81,6 +82,7 @@ class ServiceController extends Controller
             $service->image = $filename;
         }
         $service->save();
+        Toast::title('Услуга обновлена!');
         return redirect()->route('services.index');
     }
 
