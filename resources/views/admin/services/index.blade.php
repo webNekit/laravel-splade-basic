@@ -12,7 +12,10 @@
         <div class="my-4 p-4 bg-white max-w-4xl mx-auto rounded-md">
             <x-splade-table :for="$services">
                 @cell('action', $services)
-                    <Link href="{{ route('services.destroy', $services->id) }}" class="">{{ __('Удалить') }}</Link>
+                    <div class="flex gap-2">
+                        <Link href="{{ route('services.destroy', $services->id) }}" class="" confirm="Внимание!" confirm-text="Вы действительно хотите удалить запись?" confirm-button="Да" cancel-button="Отмена" method="DELETE">{{ __('Удалить') }}</Link>
+                        <Link  href="{{ route('services.edit', $services->id) }}">Редактировать</Link>
+                    </div>
                 @endcell
             </x-splade-table>
         </div>
