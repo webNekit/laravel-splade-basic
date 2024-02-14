@@ -40,5 +40,7 @@ Route::middleware(['splade'])->group(function () {
         Route::view('/dashboard', 'dashboard')->name('dashboard');
         // Ресурсный роут для Services
         Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
+        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+        Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
     });
 });
