@@ -27,7 +27,7 @@ Route::middleware(['splade'])->group(function () {
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
 
-    Route::get('/', function () {
+    Route::get('/admin', function () {
         return view('welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
@@ -43,4 +43,6 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
     });
+
+    Route::get('/', [\App\Http\Controllers\Client\IndexController::class, 'index'])->name('client.index');
 });
